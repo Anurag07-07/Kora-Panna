@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dark{
+      background-color: black;
+      color: whitesmoke;
+    }
+  </style>
+</head>
+<body>
+  <!-- <button class="btn" id="btn1">Hello</button>
+  <button class="btn" id="btn2">Hello</button>
+  <button class="btn" id="btn3">Hello</button> -->
+  <!-- <button class="btn" id="btn4">Hello</button> -->
+  <!-- <div class="message">Hello <p style="display: none;">World</p> </div> -->
+  <!-- <div id="parent">
+    <div id="child">Hello</div>
+  </div> -->
+  <!-- <a href="https://www.google.com" target="blank">Google</a> -->
+<!-- </button> -->
+ <!-- <button id="dark">Dark</button> -->
+  <ul>
+    <li>Button</li>
+    <li>Button</li>
+    <li>Button</li>
+    <li>Button</li>
+    <li>Button</li>
+    <li>Button</li>
+  </ul>
+<script>
+    //Selecting the Element
+    // const btn1 = document.getElementById('btn') 
+    // console.log(btn);
+    // const btn2 = document.getElementsByClassName('btn')
+    // console.log(btn2);
+    // const cody = document.getElementsByTagName('body')
+    // console.log(cody);
+    // const body = document.querySelector('.btn')
+    // console.log(body);
+    // const body =  document.querySelectorAll('.btn')
+    // console.log(body);
+
+    //Only Text Data has been Shown
+    // const ans1 = document.querySelector('.message').textContent
+    // console.log(ans1);
+    // //Whole Html is shown
+    // const ans2 = document.querySelector('.message').innerHTML
+    // console.log(ans2);
+    // //Only that data will be shown which will not has been hidden
+    // const ans3 = document.querySelector('.message').innerText
+    // console.log(ans3);
+    
+    //Create an Element
+    const div = document.createElement('div')
+    //Adding Data
+    div.innerText = "Hello I am done"
+    // div.innerHTML = "Hello"
+
+    // //Append inside another tag
+    document.querySelector('body').appendChild(div)
+    
+    
+    // //Remove element
+    // //Find the Element
+    // const div1 = div.parentElement
+    // div1.removeChild(div)
+
+    //Setting attribute
+    div.setAttribute('id',"Something")
+
+    //adding the class
+    // div.classList.add('add')
+
+    //Remove the class
+    // div.classList.remove('add')
+
+    //Contains the class
+    // let ans = div.classList.contains('some')
+    // console.log(ans);
+
+    //Replace the class
+    // div.classList.replace('add','adding')
+
+    //Event Listener
+    // document.addEventListener('click',function(){
+    //   document.querySelector('body').style.backgroundColor = "black"
+    // })
+
+    //Event Bubbling and Event Capturing
+    // document.querySelector('#parent').addEventListener('click',function(){
+    //   console.log("Parent Clicked");
+    // })
+
+    // document.querySelector('#child').addEventListener('click',function(e){
+    //   e.stopPropagation()
+    //   console.log("Child Clicked");
+    // })
+
+    // document.querySelector('a').addEventListener('click',function(e){
+    //   e.preventDefault()
+    //   console.log("Link not Working");
+    // })
+
+    // document.querySelector('#dark').addEventListener('click',function(e){
+    //   document.body.classList.toggle('dark')
+    // })
+    
+    
+    //Remove Event Listner 
+    //Function Must be same
+    // function main(){
+
+    // }
+
+    // document.addEventListener('click',main)
+    // document.removeEventListener('click',main)
+    // //Sirf Ek Baar Chalega
+    // document.addEventListener('click',main,{once:true})
+
+
+    const ans = document.querySelectorAll('li')
+    console.log(ans);
+
+    //Bad Way Because 1000 items ke liye thousand evenet Listener
+    // ans.forEach((item)=>{
+    //   item.addEventListener('click',function(){
+    //     console.log("Button Clicked");
+    //   })
+    // })
+
+    //Best Way Event Delegation
+    // const ans1 =document.querySelector('ul')
+    // ans1.addEventListener('click',function(e){
+    //   if (e.target.tagName==='LI') {
+    //     console.log("Working");
+    //   }
+    // }) 
+    
+    // localStorage.setItem(key,JSON.stringify())
+    // localStorage.getItem(JSON.parse())
+    // localStorage.removeItem(key)
+
+    // #Mini Project
+    
+  </script>
+</body>
+</html>

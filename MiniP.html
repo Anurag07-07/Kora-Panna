@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Todo List</h1>
+    <label>Add Todo</label>
+    <input type="text">
+    <button onclick="AddTodo()">Add Todo</button>
+    <button onclick="DeleteFirst()">Delete First</button>
+    <button onclick="DeleteLast()">Delete Last</button>
+    <div id="todo"></div>
+  <script>
+    const Todo = []
+    function AddTodo() {
+      const data = {
+        value:document.querySelector('input').value
+      }
+      Todo.push(data)
+      render()
+    }
+
+    function createTodo(data,id) {
+      const div = document.createElement('div')
+      const span = document.createElement('span')
+      const button = document.createElement('button')
+      span.innerHTML = data
+      button.innerHTML = "Delete"
+      div.setAttribute('id',id)
+      button.setAttribute('onclick','DeleteTodo('+id+')')
+      div.appendChild(span)
+      div.appendChild(button)
+      return div      
+    } 
+
+    function render() {
+      const todo = document.querySelector('#todo')
+      todo.innerHTML = ""
+      for (let i = 0; i < Todo.length; i++) {
+        //For Each Todo we have Create Todo
+        const  create = createTodo(Todo[i].value,i)
+        todo.appendChild(create)
+        document.querySelector('body').appendChild(todo)
+      }
+    }
+
+    function DeleteTodo(index) {
+      Todo.splice(index,1)
+      render()
+    }
+
+    function DeleteFirst() {
+      Todo.splice(0,1)
+      render()
+    }
+
+    function DeleteLast() {
+      Todo.splice(Todo.length-1,1)
+      render()
+    }
+  </script>
+</body>
+</html>
