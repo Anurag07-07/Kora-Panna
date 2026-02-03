@@ -145,7 +145,19 @@
     // localStorage.removeItem(key)
 
     // #Mini Project
+
+    const user = {
+      name :"Anurag"
+    }
+
     
+
+    localStorage.setItem('data',JSON.stringify(user))
+    const data = localStorage.getItem('data')   
+    const obj = JSON.parse(data)
+    console.log(typeof obj);
+    console.log(obj.name);
+     
   </script>
 </body>
 </html>

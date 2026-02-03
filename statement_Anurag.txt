@@ -1,1 +1,1 @@
-[{"type":"CREDIT","amount":50000,"date":"2026-02-03T16:11:06.534Z"},{"type":"DEBIT","amount":-50,"date":"2026-02-03T16:11:06.534Z"}]
+[{"type":"CREDIT","amount":50000,"date":"2026-02-03T17:37:42.468Z"}]

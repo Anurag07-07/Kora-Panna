@@ -58,6 +58,10 @@ class Investment extends Account{
   static INTEREST_RATE = 0.05
   #lockedFunds=true
 
+  constructor(name){
+    super._accountHolder = name
+  }
+
   set lockStatus(status){
     this.#lockedFunds = status
   }
@@ -117,11 +121,10 @@ function auditBankAssests(bankDatabase){
 
 auditBankAssests(bankDatabase)
 
-
 //Task 5
 async function EndofDay() {
   const acc = new Account("AJ",50000)
-  const inv = new Account("CJ",50000)
+  const inv = new Investment("CJ")
 
   acc.deposit(500000000)
   inv.deposit(60000)

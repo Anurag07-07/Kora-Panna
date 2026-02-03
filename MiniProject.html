@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      font-size: 40px;
+      font-style: oblique;
+      font-weight: bolder;
+    }
+    .button{
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background-color: grey;
+      font-size: 15px;
+      border-radius: 100px;
+    }
+    .dark{
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <button id="dark" class="button">Dark/Light</button>
+  <div>
+    <input id="user" type="text" placeholder="Enter the Todo">
+    <input id="data" type="text" placeholder="Enter the Todo">
+    
+    <button id="add">Add Todo</button>
+  </div>
+  <div id="todo">
+
+  </div>
+  <script src="./MiniProject.js"></script>
+</body>
+</html>
