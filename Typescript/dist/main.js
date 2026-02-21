@@ -1,44 +1,70 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// Variable Decleration
-let name = "Anurag";
-console.log(name);
-//Datatype
-// number string boolean any 
-let a = 7;
-console.log(a);
-let name1 = "Anurag";
-console.log(name1);
-let data = true;
-console.log(data);
-let value = true;
-console.log(value);
-//Functions
-const sum = (a, b) => {
-    return a + b;
-};
-const ans = sum(45, 56);
-console.log(ans);
-//Union Type
-let song = 29;
-//Regex Type 
-let reg = /\d/;
-console.log(typeof reg);
-///////////////////////////////////Arrays and Tuples///////////////////////////////////////
-let stringArr = ["one", "two", "three"];
-let guitars = ["Strat", 5150];
-let mixedData = ["one", true, 1984];
-let aj = {
+function createUser(user) {
+    if (typeof user.email === 'undefined') {
+        return `Email missing`;
+    }
+    return `User Created`;
+}
+let user = {
+    id: 45,
     name: "Anurag",
-    active: true,
-    albums: ["Someone", 4546]
+    email: "onoaj@gmail.com",
+    role: "admin",
+    isActive: true
 };
-var Direction;
-(function (Direction) {
-    Direction[Direction["up"] = 0] = "up";
-    Direction[Direction["down"] = 1] = "down";
-    Direction[Direction["left"] = 2] = "left";
-    Direction[Direction["right"] = 3] = "right";
-})(Direction || (Direction = {}));
-console.log(Direction.up);
+const ans = createUser(user);
+console.log(ans);
+function getUserRoleMessage(role) {
+    if (role === 'admin') {
+        return `Full Access`;
+    }
+    else if (role === 'user') {
+        return `Limited Access`;
+    }
+    return `Read Only`;
+}
+const ans1 = getUserRoleMessage(user.role);
+console.log(ans1);
+//Assignment 2
+function swapValues(a, b) {
+    return [b, a];
+}
+console.log(swapValues("Hello", 50));
+//Assignment 3
+const getFirstElement = (arg) => {
+    return arg[0];
+};
+class Employee {
+    user;
+    salary;
+    department;
+    constructor(user, salary, department) {
+        this.user = user;
+        this.salary = salary;
+        this.department = department;
+        this.user = user;
+        this.salary = salary;
+        this.department = department;
+    }
+    get getSalary() {
+        return `The Salary ${this.salary}`;
+    }
+    get getDepartment() {
+        return `The Department ${this.department}`;
+    }
+}
+class Manager extends Employee {
+    teamSize;
+    constructor(user, salary, department, teamSize) {
+        super(user, salary, department);
+        this.teamSize = teamSize;
+        this.teamSize = teamSize;
+    }
+    get getManager() {
+        return `Manager Details ${this.user} ${this.getSalary}`;
+    }
+}
+const user3 = new Manager("Anurag", 4565654565465n, "Software", 45);
+console.log(user3.getManager);
 //# sourceMappingURL=main.js.map

@@ -1,156 +1,91 @@
-// Variable Decleration
-let name:string = "Anurag"
-console.log(name);
-
-//Datatype
-// number string boolean any 
-let a:number = 7
-console.log(a);
-
-let name1:string = "Anurag"
-console.log(name1);
-
-let data:boolean = true
-console.log(data);
-
-let value:any = true
-console.log(value);
-
-//Functions
-
-const sum = (a:number,b:number):number=>{
-  return a+b
+type role = "admin" | "user" | "guest"
+interface User{
+  id:number
+  name:string
+  email?:string
+  role:role
+  isActive:boolean
 }
 
-const ans = sum(45,56)
+
+function createUser(user:User):string{
+  if (typeof user.email==='undefined') {
+       return `Email missing`
+  }
+  return `User Created`
+}
+
+let user:User = {
+  id:45,
+  name:"Anurag",
+  email:"onoaj@gmail.com",
+  role:"admin",
+  isActive:true
+}
+
+const ans = createUser(user)
 console.log(ans);
 
-//Union Type
-let song:number | string = 29
 
-//Regex Type 
-let reg:RegExp = /\d/
-console.log(typeof reg);
+function getUserRoleMessage<T extends role>(role:T):string{
+  if (role==='admin') {
+    return `Full Access`
+  }else if (role==='user') {
+    return `Limited Access`
+  }
+  return `Read Only`
+}
 
-
-///////////////////////////////////Arrays and Tuples///////////////////////////////////////
-
-let stringArr = ["one","two","three"]
-let guitars = ["Strat",5150]
-let mixedData  = ["one",true,1984]
-
-// stringArr[0] = "John"
-// guitars = stringArr //Possible
-// stringArr = guitars Not possible
-// guitars.push("a")
-// guitars.unshift(45)
-// mixedData = guitars
-
-//Create and Empty Array
-// let user:string[] = ["Anurag","Chitranshi","Manoj","Osheen"]
-// console.log(user);
-
-// let data1:[string,number,boolean] =  ["Javascript",1980,true]
-// let data2:(string | number | boolean)[] =  ["Javascript",1980,true]
-// data2 = data1
-// data1 = data2
-
-//How To Create Object
-// let obj:object
-// obj = []
-// obj = {}
-// const obj = {
-//   name:"typescript",
-//   prop2:true
-// }
-
-// obj.name = 45  //Not Possible 
+const ans1 = getUserRoleMessage(user.role)
+console.log(ans1);
 
 
-// let obj = {
-//   name:"Anurag",
-//   age:()=>{
-//     console.log("Hello");
-//   }
-// }
+//Assignment 2
+function swapValues<T,U>(a:T,b:U):[U,T]{
+  return [b,a]
+}
+
+console.log(swapValues("Hello",50));
 
 
-// type interface
+//Assignment 3
 
-// interface User{
-//   name:string,
-//   email?:string,
-//   albums:(string |number)[]
-//   active:boolean
-// }
+const getFirstElement = <T>(arg:T[]):T=>{
+  return arg[0]!
+}
 
-// type User = {
-//   name:string,
-//   email?:string,
-//   albums:(string |number)[]
-//   active:boolean
-// }
+class Employee{
+  constructor(public user:string, private salary:bigint, protected department:string){
+    this.user = user
+    this.salary = salary
+    this.department = department
+  }
 
-// let aj:User = {
-//   name:"Anurag",
-//   active:true,
-//   albums:["Someone",4546]
-// }
+  get getSalary(){
+    return `The Salary ${this.salary}`
+  }
 
-// enum Direction{
-//   up,down,left,right
-// }
-// console.log(Direction.up);
+  get getDepartment(){
+    return `The Department ${this.department}`
+  }
+}
 
-//Type Alises 
-type UniqueArray =  string| number | boolean
+class Manager extends Employee{
+  constructor(user:string,salary:bigint,department:string, public teamSize:number){
+    super(user,salary,department)
+    this.teamSize = teamSize
+  }
 
-let arr:UniqueArray[] = new Array()
+  get getManager(){
+    return `Manager Details ${this.user} ${this.getSalary}`
+  }
+}
 
-let name2:"Anurag" | "Manoj" | "Chitranshi" | "Osheen"
-// name2 = "Someone" Not Defined
-// name2 = 'Chitranshi' //Defined
+const user3 = new Manager("Anurag",4565654565465n,"Software",45)
+console.log(user3.getManager);
 
 
-//Functions
 
-// type mathFunction = (a:number,b:number)=>number
-
-// const diff:mathFunction =  (a,b)=>{
-//   return a-b
-// }
-
-//Optinal Parameters
-
-// const ans2 = (a:number,b:number,c?:number):number=>{
-//   if (typeof c==='undefined') {
-//     return a+b
-//   }
-//   return a+b+c
-// }
-// //Default Value
-// const ans3 = (a:number,b:number,c:number=3):number=>{
-//   if (typeof c==='undefined') {
-//     return a+b
-//   }
-//   return a+b+c
-// }
-
-//Rest Parameters
-
-// const sum2 = (a:number,b:number,...c:number[]):number=>{
-//   return c.reduce((prev:number,curr:number)=>prev+curr,0)
-// }
-
-//Error and Infinte Loop has Never Return Type
-
-// const Er = ()=> {
-//   throw new Error()
-// }
-// Er()
-
-// const infinte = ()=>{
-//   while (true) {
-    
-//   }
-// }
+//Functional Component 
+//Reconcilation and Virtual Dom
+//Map conditional Rendering events
