@@ -1,9 +1,9 @@
-import HookBase from "./Components/UseState/HookBase"
+import LocalStorageData from "./Components/Callback/LocalStorageData"
 
 const App = () => {
   return (
     <div>
-      <HookBase></HookBase>      
+      <LocalStorageData></LocalStorageData>
     </div>
   )
 }
