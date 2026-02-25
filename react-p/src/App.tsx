@@ -1,9 +1,9 @@
-import LocalStorageData from "./Components/Callback/LocalStorageData"
+import Timer from "./Components/Callback/Timer"
 
 const App = () => {
   return (
     <div>
-      <LocalStorageData></LocalStorageData>
+      <Timer></Timer>
     </div>
   )
 }

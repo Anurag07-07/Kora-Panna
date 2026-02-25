@@ -1,3 +1,4 @@
+
 import { useState, type ChangeEvent } from "react"
 
 const LocalStorageData = () => {
@@ -8,9 +9,7 @@ const LocalStorageData = () => {
 
   const [toggle,setToggle] = useState<boolean>(false)
 
-  
-
-  function handleChange(e:ChangeEvent<HTMLFormElement>){
+  function handleChange(e:ChangeEvent<HTMLInputElement>){
     const val = e.target.value
     localStorage.setItem('data',JSON.stringify(val))
   }
