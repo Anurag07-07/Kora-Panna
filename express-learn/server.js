@@ -2,8 +2,15 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const logger = (req,res,next)=>{
+  console.log("Middle Ware Working");
+  next()
+}
+
+app.use(logger)
+
 app.get('/test',(req,res)=>{
-  res.json({
+  return res.json({
     message:"Test Port is Created"
   })
 })
